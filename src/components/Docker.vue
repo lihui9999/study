@@ -55,7 +55,7 @@ export default {
     }
     &--active {
       a {
-        color: #1FA4FC;
+        color: #2282be;
       }
     }
   }

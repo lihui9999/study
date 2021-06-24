@@ -2,8 +2,8 @@
   <div class="wrapper">
     <div class="header">
       <div class="header__info">
-        <div class="header__info__user">{{userInfo.username}}</div>
-        <div class="header__info__id">ID:{{userInfo._id}}</div>
+        <div class="header__info__user"></div>
+        <div class="header__info__id"></div>
       </div>
       <img
         class="header__avatar"
@@ -74,7 +74,7 @@ export default {
 .header {
   position: relative;
   height: 1.5rem;
-  background-image: linear-gradient(239deg, #3A6FF3 0%, #50C7FB 100%);
+  background-image: url(../../assets/images/person.png);
   padding-top: .4rem;
   &__info {
     margin: .3rem .18rem 0 .18rem;
