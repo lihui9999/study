@@ -45,9 +45,9 @@ export default {
   position: absolute;
   left: 0;
   top: 0;
-  bottom: .49rem;
+  bottom: .5rem;
   right: 0;
-  background: $dark-bgColor;
+  background: #ffffff;
 }
 .position {
   position: relative;
@@ -72,14 +72,11 @@ export default {
   }
 }
 .message {
-  overflow-y: scroll;
-  position: absolute;
-  top: 0.64rem;
-  bottom: 0;
-  width: 100%;
-  background: $bgColor;
-   padding-left: .155rem;
-   padding-top: .22rem;
+    overflow-y: scroll;
+    background: #FFF;
+    padding-left: 0.155rem;
+    padding-top: 0.22rem;
+    box-sizing: border-box;
   &_item{
     display: flex;
     // padding-left: .155rem;

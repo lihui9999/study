@@ -22,7 +22,7 @@ export default {
   position: absolute;
   left: 0;
   top: 0;
-  bottom: .49rem;
+  bottom: .5rem;
   right: 0;
   background: #f2f2f2;
 //  padding: 0 .18rem .1rem .18rem;

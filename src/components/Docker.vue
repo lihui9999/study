@@ -39,7 +39,8 @@ export default {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: .49rem;
+  background: #fff;
+  // height: .49rem;
   border-top: .01rem solid $content-bgColor;
   &__item {
     flex: 1;
