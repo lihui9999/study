@@ -2,22 +2,22 @@
   <div class="wrapper">
     <div class="header">
       <div class="header__info">
-        <div class="header__info__user"></div>
-        <div class="header__info__id"></div>
+        <div class="header__info__user">姓名:张三</div>
+        <div class="header__info__id">部门:工程师</div>
       </div>
       <img
         class="header__avatar"
         src="http://www.dell-lee.com/imgs/avatar.jpg"
       />
     </div>
-    <div class="list">
+    <!-- <div class="list">
       <div class="list__item" @click="handleAddressClick">
         <div class="list__item__icon iconfont">&#xe617;</div>
         <div class="list__item__test">我的地址</div>
         <div class="list__item__arrow iconfont">&#xe6f2;</div>
       </div>
-    </div>
-    <div class="logout" @click="handleLogout">退出登陆</div>
+    </div> -->
+    <!-- <div class="logout" @click="handleLogout">退出登陆</div> -->
   </div>
   <Docker :currentIndex="3"/>
 </template>
@@ -77,11 +77,11 @@ export default {
   background-image: url(../../assets/images/person.png);
   padding-top: .4rem;
   &__info {
-    margin: .3rem .18rem 0 .18rem;
-    padding-top: .46rem;
-    height: .66rem;
+    margin: 1.1rem 0.18rem 0 0.18rem;
+    padding-top: 0.46rem;
+    height: 0.26rem;
     background: #FFF;
-    border-radius: .08rem;
+    border-radius: 0.08rem;
     &__user {
       font-size: .24rem;
       color: #262628;
@@ -97,11 +97,11 @@ export default {
   }
   &__avatar {
     position: absolute;
-    left: 50%;
-    top: .2rem;
+    left: 15%;
+    top: 1.65rem;
     transform: translateX(-50%);
-    width: .94rem;
-    height: .94rem;
+    width: .44rem;
+    height: .44rem;
     border-radius: 50%;
   }
 }
