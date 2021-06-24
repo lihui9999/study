@@ -1,0 +1,178 @@
+<template>
+ <div class="position">
+    <span class="position_title">首页</span> 
+    <span class="iconfont position_notice">&#xe615;</span>
+  </div> 
+    <div class="banner">
+    <img
+      class="banner__img"
+      src="../../assets/images/banner.png"
+    />
+  </div>
+  <div class="search">
+    <span class="iconfont">&#xe627;</span>
+    <span class="search__text">搜索课程</span>
+  </div>
+  <div class="icons__top">
+      <div
+      class="icons__top__item"
+      v-for="item in iconsTopList"
+      :key="item.desc"
+    >
+        <img
+        class="icons__top__item__img"
+        src="../../assets/images/课程中心.png"
+      />
+      <p class="icons__top__item__desc">{{item.desc}}</p>
+    </div>
+  </div>
+  <div class="icons__bottom">
+    <div
+      class="icons__bottom__item"
+      v-for="item in iconsbottomList"
+      :key="item.desc"
+    >
+        <img
+        class="icons__bottom__item__img"
+        src="../../assets/images/学习计划.png"
+      />
+      <p class="icons__bottom__item__desc">{{item.desc}}</p>
+    </div>
+    </div>
+</template>
+
+<script>
+export default {
+  name: 'StaticPart',
+  setup() {
+    const iconsTopList = [
+      { imgName: "课程中心", desc: "课程中心"},
+      { imgName: "我的学习", desc: "我的学习"},
+      { imgName: "模拟考试", desc: "模拟考试"},
+      { imgName: "自我练习", desc: "自我练习"},
+    ]
+     const iconsbottomList = [
+      { imgName: "学习计划", desc: "学习计划"},
+      { imgName: "我的考试", desc: "我的考试"},
+      { imgName: "政策法规", desc: "政策法规"},
+      { imgName: "安全文库", desc: "安全文库"},
+    ]
+    return { iconsTopList, iconsbottomList}
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+@import '../../style/viriables.scss';
+@import '../../style/mixins.scss';
+
+.position {
+  position: relative;
+  height: .64rem;
+  background-color: #2282be;
+  margin: 0 auto;
+  @include ellipsis;
+  .position_notice {
+    position: absolute;
+    right: .13rem;
+    top: .34rem;
+    font-size: 0.21rem;
+    color: #fff;
+  }
+  .position_title{
+    color: #ffffff;
+    font-size: .17rem;
+    position: absolute;
+    left: 50%;
+    margin-left: -.17rem;
+    top: .34rem;
+  }
+}
+.search {
+  width: 3.555rem;
+ line-height: 0.175rem;
+  opacity: 0.76;
+  position: absolute;
+  top: 0.68rem;
+  background:#ffffff;
+  color: $search-fontColor;
+  border-radius: .015rem;
+  left: 50%;
+  margin-left: -1.777rem;
+  .iconfont {
+    display: inline-block;
+    padding-left:  .16rem;
+    font-size: .18rem;
+    color: #2282be;
+    padding-top: .036rem;
+  }
+  &__text {
+    display: inline-block;
+    font-size: .12rem;
+    position: absolute;
+    left: 50%;
+    margin-left: -0.25rem;
+    padding-top: .018rem;
+  }
+}
+.banner {
+  width: 100%;
+  overflow: hidden;
+  &__img {
+    width: 100%;
+    height:100%;
+  }
+}
+.icons__top {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: .1rem;
+  background: #fcfcfc;
+  border-radius:.075rem;
+  margin-left: .11rem;
+  margin-right: .11rem;
+  &__item {
+    width: 25%;
+    &__img {
+      display:block;
+      width: .5rem;
+      height: .5rem;
+      margin: 0 auto;
+      padding-top: .1rem;
+    }
+    &__desc {
+      margin: .04rem 0 .085rem 0;
+      text-align: center;
+      color: $content-fontcolor;
+    }
+  }
+}
+.icons__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: .12rem;
+  margin-left: .12rem;
+  margin-right: .12rem;
+  &__item {
+   width: 22%;
+   background: #fcfcfc;
+   margin-right: .14rem;
+   border-radius: .075rem;
+    &__img {
+      display:block;
+      width: .5rem;
+      height: .5rem;
+      margin: 0 auto;
+      padding-top: .1rem;
+    }
+    &__desc {
+      margin: .04rem 0 .085rem 0;
+      text-align: center;
+      color: $content-fontcolor;
+    }
+  }
+}
+.icons__bottom__item:last-child{
+margin-right: 0;
+}
+</style>
