@@ -1,62 +1,68 @@
 <template>
   <div class="wrapper">
     <div class="header">
-      <div class="header__info">
-        <div class="header__info__user">姓名:张三</div>
-        <div class="header__info__id">部门:工程师</div>
-      </div>
       <img
         class="header__avatar"
         src="http://www.dell-lee.com/imgs/avatar.jpg"
       />
-    </div>
-    <!-- <div class="list">
-      <div class="list__item" @click="handleAddressClick">
-        <div class="list__item__icon iconfont">&#xe617;</div>
-        <div class="list__item__test">我的地址</div>
-        <div class="list__item__arrow iconfont">&#xe6f2;</div>
+      <div class="header__info">
+        <div class="header__info__user"><span>姓名:</span><span>张三</span></div>
+        <div class="header__info__id"><span>部门:</span><span>工程部</span></div>
       </div>
-    </div> -->
-    <!-- <div class="logout" @click="handleLogout">退出登陆</div> -->
+      <div class="iconfont header__icon">&#xe61f;</div>
+    </div>
+  <div class="list">
+      <div class="list__item">
+        <div class="list__item__icon iconfont">&#xe61c;</div>
+        <div class="list__item__test">学习档案</div>
+        <div class="list__item__arrow iconfont">&#xe61f;</div>
+      </div>
+       <div class="list__item">
+        <div class="list__item__icon iconfont pinkIcon">&#xe786;</div>
+        <div class="list__item__test">离线学习</div>
+        <div class="list__item__arrow iconfont">&#xe61f;</div>
+      </div>
+         <div class="list__item">
+        <div class="list__item__icon iconfont blueIcon">&#xe683;</div>
+        <div class="list__item__test">我的笔记</div>
+        <div class="list__item__arrow iconfont">&#xe61f;</div>
+      </div>
+         <div class="list__item">
+        <div class="list__item__icon iconfont redIcon">&#xe63b;</div>
+        <div class="list__item__test">我的学习</div>
+        <div class="list__item__arrow iconfont">&#xe61f;</div>
+      </div>
+    </div> 
+   <div class="list">
+      <div class="list__item">
+        <div class="list__item__icon iconfont orangeIcon">&#xe634;</div>
+        <div class="list__item__test">我的收藏</div>
+        <div class="list__item__arrow iconfont">&#xe61f;</div>
+      </div>
+       <div class="list__item">
+        <div class="list__item__icon iconfont greenIcon">&#xe628;</div>
+        <div class="list__item__test">我的评价</div>
+        <div class="list__item__arrow iconfont">&#xe61f;</div>
+      </div>
+         <div class="list__item">
+        <div class="list__item__icon iconfont blueIcon">&#xe608;</div>
+        <div class="list__item__test">修改密码</div>
+        <div class="list__item__arrow iconfont">&#xe61f;</div>
+      </div>
+        <div class="list__item">
+        <div class="list__item__icon iconfont purpleIcon">&#xe64c;</div>
+        <div class="list__item__test">系统设置</div>
+        <div class="list__item__arrow iconfont">&#xe61f;</div>
+      </div>
+    </div> 
   </div>
   <Docker :currentIndex="3"/>
 </template>
-
 <script>
-import { reactive } from 'vue'
-import { useRouter } from 'vue-router'
-import { get } from '../../utils/request'
 import Docker from '../../components/Docker'
-
-const useUserEffect = () => {
-  const userInfo = reactive({ _id: '', username: '' })
-   const getUserInfo = async () => {
-    const result = await get('/api/user/info')
-    if(result?.errno === 0 && result?.data) {
-      const { _id, username } = result.data
-      userInfo._id = _id || ''
-      userInfo.username = username || ''
-    }
-  }
-  getUserInfo()
-  return userInfo
-}
-
 export default {
   name: 'PersonalInfo',
   components: { Docker },
-  setup() {
-    const router = useRouter()
-    const handleLogout = () => {
-      localStorage.removeItem('isLogin')
-      router.replace({ name: 'Login'})
-    }
-    const handleAddressClick = () => {
-      router.push({ name: 'MyAddressList'})
-    }
-    const userInfo = useUserEffect()
-    return { handleLogout, handleAddressClick, userInfo }
-  }
 }
 </script>
 
@@ -67,7 +73,7 @@ export default {
   position: absolute;
   left: 0;
   top: 0;
-  bottom: .5rem;
+  bottom: 0.5rem;
   right: 0;
   background: $dark-bgColor;
 }
@@ -78,22 +84,27 @@ export default {
   padding-top: .4rem;
   &__info {
     margin: 1.1rem 0.18rem 0 0.18rem;
-    padding-top: 0.46rem;
-    height: 0.26rem;
+    height: 0.76rem;
     background: #FFF;
     border-radius: 0.08rem;
     &__user {
-      font-size: .24rem;
+      font-size: .14rem;
       color: #262628;
-      text-align: center;
-      line-height: .36rem;
+     margin-left: 0.61rem;
+      line-height: .43rem;
+      color: #7A81AB;
     }
     &__id {
-      margin-top: .04rem;
       font-size: .14rem;
-      color: #C1C0C9;
-      text-align: center;
+     color: #7A81AB;
+    margin-left: 0.61rem;
     }
+  }
+  &__icon{
+    position: absolute;
+    right: 10%;
+    top: 94%;
+    color: #7A81ABFF;
   }
   &__avatar {
     position: absolute;
@@ -105,44 +116,62 @@ export default {
     border-radius: 50%;
   }
 }
+.header__info__user span ,.header__info__id span{
+  padding-left: .06rem;
+}
 .list {
-  margin: .16rem .18rem 0 .18rem;
+    margin: 0.5rem 0.18rem 0.18rem 0.18rem;
   background: $bgColor;
-  box-shadow: 0 .08rem .16rem 0 rgba(0, 0, 0, .08);
   border-radius: .08rem;
   &__item {
     display: flex;
     padding: .2rem;
     line-height: .22rem;
     font-size: .14rem;
-    color: #262626;
+    color: #7A81AB;
+    border-bottom: .01rem solid #F1EDEDFF;
     &__icon {
       margin-right: .12rem;
-      width: .22rem;
-      height: .22rem;
-      background: #32C5FF;
-      border-radius: .08rem;
       text-align: center;
-      font-weight: bold;
-      color: $bgColor;
+      color: #2fbd0b;
+      font-size: .22rem;
     }
     &__test {
       flex: 1;
     }
     &__arrow {
-      width: .2rem;
-      transform: rotate(180deg);
-      font-weight: bold;
-      color: #C2C4CA;
+      color: #7A81ABFF;
     }
   }
 }
-.logout {
-  margin: .18rem;
-  line-height: .32rem;
-  background: $btn-bgColor;
-  color: $bgColor;
-  text-align: center;
-  border-radius: .04rem;
+.wrapper .list:last-child{
+    margin: 0 .18rem 0.2rem .18rem;
+}
+.wrapper .list .list__item:last-child{
+      border-bottom: 0;
+}
+.pinkIcon{
+ color:  #F63D87;
+font-size: .22rem;
+}
+.blueIcon{
+  color: #112DD1FF;
+  font-size: .21rem;
+}
+.redIcon{
+  color: #F924DDFF;
+  font-size: .22rem;
+}
+.orangeIcon{
+  color: #FE970FFF;
+   font-size: .22rem;
+}
+.greenIcon{
+  color: #17EA07FF;
+  font-size: .22rem;
+}
+.purpleIcon{
+  color: #7405DBFF;
+ font-size: .22rem;
 }
 </style>
