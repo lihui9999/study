@@ -78,9 +78,7 @@ export default {
         // 如果需要分页器
         pagination: '.swiper-pagination',
         //如果需要自动切换海报
-        autoplay: {
-          delay: 3000,//时间 毫秒
-        },
+       autoplay:2000//时间 毫秒
       })
     }
 }
@@ -97,7 +95,11 @@ export default {
       width: 100%;
       height: 100%;
       text-align: center;
-      line-height: 500px;
+      line-height: 2rem;
+      img{
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }
