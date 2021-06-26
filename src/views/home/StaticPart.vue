@@ -3,11 +3,23 @@
     <span class="position_title">首页</span> 
     <span class="iconfont position_notice">&#xe615;</span>
   </div> 
-    <div class="banner">
-    <img
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img
       class="banner__img"
       src="../../assets/images/banner.png"
-    />
+    /></div>
+      <div class="swiper-slide"><img
+      class="banner__img"
+      src="../../assets/images/banner.png"
+    /></div>
+      <div class="swiper-slide"><img
+      class="banner__img"
+      src="../../assets/images/banner.png"
+    /></div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
   </div>
   <div class="search">
     <span class="iconfont">&#xe627;</span>
@@ -42,6 +54,7 @@
 </template>
 
 <script>
+import Swiper from 'swiper'
 export default {
   name: 'StaticPart',
   setup() {
@@ -59,13 +72,35 @@ export default {
     ]
     return { iconsTopList, iconsbottomList}
   },
+    mounted() {
+      new Swiper ('.swiper-container', {
+        loop: true,
+        // 如果需要分页器
+        pagination: '.swiper-pagination',
+        //如果需要自动切换海报
+        autoplay: {
+          delay: 3000,//时间 毫秒
+        },
+      })
+    }
 }
 </script>
 
 <style lang="scss" scoped>
 @import '../../style/viriables.scss';
 @import '../../style/mixins.scss';
-
+.swiper-container{
+  height: 2rem;
+  width: 100%;
+  .swiper-wrapper{
+    .swiper-slide{
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      line-height: 500px;
+    }
+  }
+}
 .position {
   position: relative;
   height: .64rem;
@@ -99,6 +134,7 @@ export default {
   border-radius: .015rem;
   left: 50%;
   margin-left: -1.777rem;
+  z-index: 1;
   .iconfont {
     display: inline-block;
     padding-left:  .16rem;
@@ -113,14 +149,6 @@ export default {
     left: 50%;
     margin-left: -0.25rem;
     padding-top: .018rem;
-  }
-}
-.banner {
-  width: 100%;
-  overflow: hidden;
-  &__img {
-    width: 100%;
-    height:100%;
   }
 }
 .icons__top {

@@ -81,6 +81,7 @@ export default {
   position: relative;
   height: 1.5rem;
   background-image: url(../../assets/images/person.png);
+  // background-image: linear-gradient(239deg, #2282BEFF 0%, #50C7FB 100%);
   padding-top: .4rem;
   &__info {
     margin: 1.1rem 0.18rem 0 0.18rem;

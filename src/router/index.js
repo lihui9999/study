@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-const routes = [{
+const routes = [
+  {
     path: '/',
     name: 'Home',
     component: () => import(/* webpackChunkName: "home" */ '../views/home/Home')
@@ -17,12 +18,36 @@ const routes = [{
     path: '/person',
     name: 'PersonalInfo',
     component: () => import(/* webpackChunkName: "person" */ '../views/personalInfo/PersonalInfo'),
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: () => import(/* webpackChunkName: "register" */ '../views/register/Register'),
+    beforeEnter(to, from, next) {
+      const { isLogin } = localStorage;
+      isLogin ? next({ name: 'Home'}):  next();
+    }
+  },
+  {
+    path: '/',
+    name: 'Login',
+    component: () => import(/* webpackChunkName: "person" */ '../views/login/Login'),
+    beforeEnter(to, from, next) {
+      const { isLogin } = localStorage;
+      isLogin ? next({ name: 'Home'}):  next();
+    }
   }
 ]
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes
+})
+router.beforeEach((to, from ,next) => {
+  const { isLogin } = localStorage;
+  const { name } = to;
+  const isLoginOrRegister = (name === "Login" || name === "Register");
+  (isLogin || isLoginOrRegister) ? next() : next({ name: 'Login'});
 })
 export default router
 

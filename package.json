@@ -12,7 +12,7 @@
     "core-js": "^3.6.5",
     "normalize.css": "^8.0.1",
     "save": "^2.4.0",
-    "swiper": "^6.7.0",
+    "swiper": "^3.4.2",
     "swiper.js": "^1.0.0",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
