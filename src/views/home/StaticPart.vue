@@ -26,7 +26,7 @@
     <span class="search__text">搜索课程</span>
   </div>
   <div class="icons__top">
-      <div
+   <div
       class="icons__top__item"
       v-for="item in iconsTopList"
       :key="item.desc"
@@ -83,7 +83,6 @@ export default {
     }
 }
 </script>
-
 <style lang="scss" scoped>
 @import '../../style/viriables.scss';
 @import '../../style/mixins.scss';

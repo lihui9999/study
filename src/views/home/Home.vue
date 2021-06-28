@@ -25,6 +25,5 @@ export default {
   bottom: .5rem;
   right: 0;
   background: #f2f2f2;
-//  padding: 0 .18rem .1rem .18rem;
 }
 </style>
