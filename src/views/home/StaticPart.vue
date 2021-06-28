@@ -21,34 +21,88 @@
     <!-- 如果需要分页器 -->
     <div class="swiper-pagination"></div>
   </div>
-  <div class="search">
+  <div class="search input" 
+  contenteditable="true"
+  @click="handelInput"
+  >
     <span class="iconfont">&#xe627;</span>
-    <span class="search__text">搜索课程</span>
+  <span class="search__text">搜索课程</span>
   </div>
   <div class="icons__top">
    <div
       class="icons__top__item"
-      v-for="item in iconsTopList"
-      :key="item.desc"
+      @click="handleCourseCenter()"
     >
         <img
         class="icons__top__item__img"
         src="../../assets/images/课程中心.png"
       />
-      <p class="icons__top__item__desc">{{item.desc}}</p>
+      <p class="icons__top__item__desc">课程中心</p>
+    </div>
+       <div
+      class="icons__top__item"
+    >
+        <img
+        class="icons__top__item__img"
+        src="../../assets/images/我的学习.png"
+      />
+      <p class="icons__top__item__desc">我的学习</p>
+    </div>
+       <div
+      class="icons__top__item"
+    >
+        <img
+        class="icons__top__item__img"
+        src="../../assets/images/模拟考试.png"
+      />
+      <p class="icons__top__item__desc">模拟考试</p>
+    </div>
+     <div
+      class="icons__top__item"
+    >
+        <img
+        class="icons__top__item__img"
+        src="../../assets/images/在线练习.png"
+      />
+      <p class="icons__top__item__desc">在线练习</p>
     </div>
   </div>
   <div class="icons__bottom">
     <div
       class="icons__bottom__item"
-      v-for="item in iconsbottomList"
-      :key="item.desc"
     >
-        <img
+   <img
         class="icons__bottom__item__img"
         src="../../assets/images/学习计划.png"
       />
-      <p class="icons__bottom__item__desc">{{item.desc}}</p>
+      <p class="icons__bottom__item__desc">学习计划</p>
+    </div>
+        <div
+      class="icons__bottom__item"
+    >
+   <img
+        class="icons__bottom__item__img"
+        src="../../assets/images/我的考试.png"
+      />
+      <p class="icons__bottom__item__desc">我的考试</p>
+    </div>
+        <div
+      class="icons__bottom__item"
+    >
+   <img
+        class="icons__bottom__item__img"
+        src="../../assets/images/政策法规.png"
+      />
+      <p class="icons__bottom__item__desc">政策法规</p>
+    </div>
+  <div
+      class="icons__bottom__item"
+    >
+   <img
+        class="icons__bottom__item__img"
+        src="../../assets/images/安全文库.png"
+      />
+      <p class="icons__bottom__item__desc">安全文库</p>
     </div>
     </div>
 </template>
@@ -57,20 +111,11 @@
 import Swiper from 'swiper'
 export default {
   name: 'StaticPart',
-  setup() {
-    const iconsTopList = [
-      { imgName: "课程中心", desc: "课程中心"},
-      { imgName: "我的学习", desc: "我的学习"},
-      { imgName: "模拟考试", desc: "模拟考试"},
-      { imgName: "自我练习", desc: "自我练习"},
-    ]
-     const iconsbottomList = [
-      { imgName: "学习计划", desc: "学习计划"},
-      { imgName: "我的考试", desc: "我的考试"},
-      { imgName: "政策法规", desc: "政策法规"},
-      { imgName: "安全文库", desc: "安全文库"},
-    ]
-    return { iconsTopList, iconsbottomList}
+  methods:{
+    handleCourseCenter: function(){
+       this.$router.push('/courseCenter')
+    }
+
   },
     mounted() {
       new Swiper ('.swiper-container', {
@@ -80,7 +125,7 @@ export default {
         //如果需要自动切换海报
        autoplay:2000//时间 毫秒
       })
-    }
+    },
 }
 </script>
 <style lang="scss" scoped>
@@ -135,6 +180,8 @@ export default {
   border-radius: .015rem;
   left: 50%;
   margin-left: -1.777rem;
+  border:1px solid #ddd;
+  outline: none;
   z-index: 1;
   .iconfont {
     display: inline-block;
