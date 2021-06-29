@@ -1,23 +1,31 @@
 <template>
  <div class="position">
-     <span class="iconfont position_back">&#xe63c;返回</span>
+     <span class="iconfont position_back" @click="handleBack">&#xe63c;返回</span>
      <span class="position_title">课程中心</span> 
      <span class="iconfont position_notice">&#xe627;</span>
      <span class="iconfont position_more">&#xe64d;</span>
   </div>
-  <div class="wrapper">
-    <div class="course">
-        <div class="course__titme">
-            
-        </div>
-        <div class="course__person"></div>
+  <div class="course">
+    <div class="course__title">
+          <div class="course__title__time"> 按发布时间排序</div>
+          <div class="course__title__person">按学习人数排序</div>
+    </div>
+    <div class="course__content">
+        <Nearby />
     </div>
   </div>
 </template>
 
 <script>
+import Nearby from '../home/Nearby'
 export default {
   name: 'courseCenter',
+    components: { Nearby},
+    methods:{
+      handleBack: function(){
+       this.$router.back(-1)
+    }
+    }
 }
 </script>
 <style lang="scss" scoped>
@@ -58,6 +66,35 @@ export default {
     left: 50%;
     margin-left: -.17rem;
     top: .34rem;
+  }
+}
+.course{
+  position:absolute;
+  top: .64rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #f2f2f2;
+  &__title{
+    display: flex;
+    text-align: center;
+    justify-items: center;
+    line-height: .45rem;
+    background: #fff;
+    &__time{
+       width: 50%;
+    font-size: 0.16rem;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: #17B5ED;
+    }
+    &__person{
+   width: 50%;
+   font-size: .16rem;
+   font-family: Microsoft YaHei;
+   font-weight: 400;
+   color: #606060;
+    }
   }
 }
 </style>
