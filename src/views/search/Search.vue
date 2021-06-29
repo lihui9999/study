@@ -1,8 +1,7 @@
 <template>
     <div class="wrapper">
    <div class="position">
-    <span class="position_title">首页</span> 
-    <span class="iconfont position_notice">&#xe615;</span>
+    <span class="iconfont position_notice">取消</span>
   </div> 
     <div class="search">
     <span class="iconfont">&#xe627;</span>
@@ -12,9 +11,11 @@
 </template>
 <script>
 export default {
+    name:'Search'
 }
 </script>
 <style lang="scss" scoped>
+@import '../../style/viriables.scss';
 .wrapper {
   overflow-y: auto;
   position: absolute;
